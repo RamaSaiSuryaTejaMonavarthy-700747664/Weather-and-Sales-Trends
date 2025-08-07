@@ -1,12 +1,22 @@
 # Import Python packages
 import streamlit as st
 import altair as alt
-from snowflake.snowpark.context import get_active_session
+from snowflake.snowpark import Session
 import pandas as pd
 from snowflake.snowpark.functions import col
 
 # Get the current credentials
-session = get_active_session()
+connection_parameters = {
+    "account": st.secrets["IWIBFIU-ZJB63284"],
+    "user": st.secrets["SURYA1751"],
+    "password": st.secrets["Suryateja1751*"],
+    "role": st.secrets["ACCOUNTADMIN"],
+    "warehouse": st.secrets["COMPUTE_WH"],
+    "database": st.secrets["TASTY_BYTES"],
+    "schema": st.secrets["HARMONIZED"]
+}
+
+session = Session.builder.configs(connection_parameters).create()
 
 st.title('Weather and Sales Trends for Hamburg, Germany')
 
