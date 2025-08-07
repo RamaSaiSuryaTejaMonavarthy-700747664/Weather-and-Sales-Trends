@@ -7,15 +7,14 @@ from snowflake.snowpark.functions import col
 
 # Get the current credentials
 connection_parameters = {
-    "account": st.secrets["IWIBFIU-ZJB63284"],
-    "user": st.secrets["SURYA1751"],
-    "password": st.secrets["Suryateja1751*"],
-    "role": st.secrets["ACCOUNTADMIN"],
-    "warehouse": st.secrets["COMPUTE_WH"],
-    "database": st.secrets["TASTY_BYTES"],
-    "schema": st.secrets["HARMONIZED"]
+    "account": st.secrets["account"],
+    "user": st.secrets["user"],
+    "password": st.secrets["password"],
+    "role": st.secrets["role"],
+    "warehouse": st.secrets["warehouse"],
+    "database": st.secrets["database"],
+    "schema": st.secrets["schema"]
 }
-
 session = Session.builder.configs(connection_parameters).create()
 
 st.title('Weather and Sales Trends for Hamburg, Germany')
